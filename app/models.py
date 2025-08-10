@@ -1,5 +1,5 @@
 from app import db
-from sqlalchemy import Integer, String, DateTime
+from sqlalchemy import Integer, String, DateTime, Boolean
 from datetime import datetime
 
 class Contato(db.Model):
@@ -10,4 +10,5 @@ class Contato(db.Model):
     message = db.Column(String, nullable=True)
     
     date_sended = db.Column(DateTime, default=datetime.utcnow())
-    
+    answered = db.Column(Boolean, default=False)
+
