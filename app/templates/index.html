@@ -18,6 +18,13 @@
             <a href="{{url_for('newroute')}}">Nova Página</a>
         </li>
         <li>Variavel usuario : {{usuario}}</li>
+        <li>Context : 
+            <ol>
+                {% for chave, valor in context.items() %}
+                    <li>{{chave}} : {{valor}}</li>
+                {% endfor %}
+            </ol>
+        </li>
     </ul>
 </body>
 </html>
