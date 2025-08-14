@@ -12,5 +12,5 @@ class Contato(db.Model):
     date_sended = db.Column(DateTime, default=datetime.utcnow())
     answered = db.Column(Boolean, default=False)
 
-    def __repr__(self):
-        return f" name: {self.name} \n email: {self.email} \n subject: {self.subject} \n message: {self.message}"
+    # def __repr__(self):
+    #     return f" name: {self.name} \n email: {self.email} \n subject: {self.subject} \n message: {self.message}"

@@ -55,3 +55,24 @@ def contato_form():
         form.save()
         return redirect(url_for('home'))
     return render_template('contato_form.html',context=context,form=form)
+
+
+
+@app.route('/contato/lista/')
+def contato_lista():
+    if request.method == "GET":
+        pesquisa = request.args.get('pesquisa','')
+    
+    dados = Contato.query.order_by('name')
+    
+    if pesquisa != '':
+        dados = dados.filter_by(name = pesquisa)
+    context = {'dados':dados.all()}
+    
+    for i in context['dados']:
+        print(i)
+    
+    
+    return render_template('contato_lista.html',context=context)
+
+
