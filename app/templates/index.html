@@ -1,110 +1,100 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudo Flask - Camp Code</title>
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
-        crossorigin="anonymous">
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <div class="container text-center border border-dark mt-4">
-        <h3>Estudo Flask</h3>
-    </div>
-    <div class="container text-center mt-4">
-        <h4>Welcome</h4>
-    </div>
-    <ul class="container">
-        <li>Primeira conexao com o git</li>
-        <li>
-            <a href="{{url_for('newroute')}}">Nova Página</a>
-        </li>
-        <li>Variavel usuario : {{usuario}}</li>
-        <li>Context : 
-            <ol>
-                {% for chave, valor in context.items() %}
-                    <li>{{chave}} : {{valor}}</li>
-                {% endfor %}
-            </ol>
-        </li>
-        <li class="container row mt-4 bg-dark">
-            <p class="mt-2 bg-white">BOOTSTRAP</p>
-            <div class="col-1 bg-primary">
-                <p>Coluna 1</p>
-            </div>
-            <div class="col-1 bg-secondary">
-                <p>Coluna 2</p>
-            </div>
-            <div class="col-1 bg-success">
-                <p>Coluna 3</p>
-            </div>
-            <div class="col-1 bg-danger">
-                <p>Coluna 4</p>
-            </div>
-            <div class="col-1 bg-warning">
-                <p>Coluna 5</p>
-            </div>
-            <div class="col-1 bg-info">
-                <p>Coluna 6</p>
-            </div>
-            <div class="mx-auto mb-2 mt-2 row text-white bg-danger">row</div>
-        </li>
-        <li>
-            <div class="row mt-4 ms-2 justify-content-around border border-dark p-1">
-                <div class="btn btn-primary col-md-2">Link</div>
-                <div class="btn btn-danger col-md-2">Link</div>
-                <div class="btn btn-success col-md-2">Link</div>
-            </div>
-        </li>
-        <li class="container mt-2 border rounded shadow p-4 mt-4">
-            <div class="row">
-                <table class="table table-bordered table-hover">
-                    <thead class="text-center">
-                        <tr class="table-primary">
-                            <th>id</th>
-                            <th>name</th>
-                            <th>phone</th>
-                            <th>city</th>
-                            <th>country</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Eduardo</td>
-                            <td>81 9 9254-1517</td>
-                            <td>São Caitano</td>
-                            <td>Brasil</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Alice</td>
-                            <td>81 9 0000-0000</td>
-                            <td>Caruaru</td>
-                            <td>Brasil</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </li>
-        <li class="row mt-4">
-            <a class="btn btn-dark" href="{{url_for('contato')}}">Contato</a>
-        </li>
-        <li class="row mt-4">
-            <a class="btn btn-dark" href="{{url_for('contato_form')}}">Contato Formulario</a>
-        </li>
-        <li class="row mt-4">
-            <a class="btn btn-dark" href="{{url_for('contato_lista')}}">Contato Lista</a>
-        </li>
-    </ul>
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
-        crossorigin="anonymous">
-    </script>
-</body>
-</html>
+{% block content %}
+
+<div class="container text-center border border-dark mt-4">
+    <h3>Estudo Flask</h3>
+</div>
+<div class="container text-center mt-4">
+    <h4>Welcome</h4>
+</div>
+<ul class="container">
+    <li>Primeira conexao com o git</li>
+    <li>
+        <a href="{{url_for('newroute')}}">Nova Página</a>
+    </li>
+    <li>Variavel usuario : {{usuario}}</li>
+    <li>Context : 
+        <ol>
+            {% for chave, valor in context.items() %}
+                <li>{{chave}} : {{valor}}</li>
+            {% endfor %}
+        </ol>
+    </li>
+    <li class="container row mt-4 bg-dark">
+        <p class="mt-2 bg-white">BOOTSTRAP</p>
+        <div class="col-1 bg-primary">
+            <p>Coluna 1</p>
+        </div>
+        <div class="col-1 bg-secondary">
+            <p>Coluna 2</p>
+        </div>
+        <div class="col-1 bg-success">
+            <p>Coluna 3</p>
+        </div>
+        <div class="col-1 bg-danger">
+            <p>Coluna 4</p>
+        </div>
+        <div class="col-1 bg-warning">
+            <p>Coluna 5</p>
+        </div>
+        <div class="col-1 bg-info">
+            <p>Coluna 6</p>
+        </div>
+        <div class="mx-auto mb-2 mt-2 row text-white bg-danger">row</div>
+    </li>
+    <li>
+        <div class="row mt-4 ms-2 justify-content-around border border-dark p-1">
+            <div class="btn btn-primary col-md-2">Link</div>
+            <div class="btn btn-danger col-md-2">Link</div>
+            <div class="btn btn-success col-md-2">Link</div>
+        </div>
+    </li>
+    <li class="container mt-2 border rounded shadow p-4 mt-4">
+        <div class="row">
+            <table class="table table-bordered table-hover">
+                <thead class="text-center">
+                    <tr class="table-primary">
+                        <th>id</th>
+                        <th>name</th>
+                        <th>phone</th>
+                        <th>city</th>
+                        <th>country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Eduardo</td>
+                        <td>81 9 9254-1517</td>
+                        <td>São Caitano</td>
+                        <td>Brasil</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Alice</td>
+                        <td>81 9 0000-0000</td>
+                        <td>Caruaru</td>
+                        <td>Brasil</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </li>
+    <li class="row mt-4">
+        <a class="btn btn-dark" href="{{url_for('contato')}}">Contato</a>
+    </li>
+    <li class="row mt-4">
+        <a class="btn btn-dark" href="{{url_for('contato_form')}}">Contato Formulario</a>
+    </li>
+    <li class="row mt-4">
+        <a class="btn btn-dark" href="{{url_for('contato_lista')}}">Contato Lista</a>
+    </li>
+    <li class="m-4 p-2">
+        {% include 'nav.html' %}
+    </li>
+</ul>
+
+
+
+{% endblock %}

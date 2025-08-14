@@ -67,11 +67,8 @@ def contato_lista():
     
     if pesquisa != '':
         dados = dados.filter_by(name = pesquisa)
+        
     context = {'dados':dados.all()}
-    
-    for i in context['dados']:
-        print(i)
-    
     
     return render_template('contato_lista.html',context=context)
 
