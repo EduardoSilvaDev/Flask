@@ -1,6 +1,8 @@
 from app import app, db
-from flask import render_template, url_for, request
+from flask import render_template, url_for, request, redirect
+
 from app.models import Contato
+from app.form import ContatoForm
 
 @app.route('/')
 def home():
@@ -45,8 +47,11 @@ def contato():
         
     return render_template('formulario.html',context=context)
 
-@app.route('/contatoform')
+@app.route('/contatoform', methods = ['GET','POST'])
 def contato_form():
-    if request.method=='POST':
-        pass
-    return render_template('contato_form.html')
+    form = ContatoForm()
+    context = {}
+    if form.validate_on_submit():
+        form.save()
+        return redirect(url_for('home'))
+    return render_template('contato_form.html',context=context,form=form)

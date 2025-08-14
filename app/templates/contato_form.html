@@ -14,27 +14,23 @@
     <a class="col-1 btn btn-primary ms-2 mt-2" href="{{url_for('home')}}">Voltar</a>
 
     <div class="container">
-        <h2 class="text-center">Contato</h2>
-        <form action="" method="post" class="row mt-4">
-            <div class="col-6">
-                Nome
-                <input type="text" name="name" id="name" class="form-control" required>
-            </div>
-            <div class="col-6">
-                E-mail
-                <input type="email" name="email" id="email" class="form-control" required>
-            </div>
-            <div class="col-12">
-                Assunto
-                <input type="text" name="subject" id="subject" class="form-control" required>
-            </div>
-            <div class="col-12">
-                Menssagem
-                <input type="text" name="message" id="message" class="form-control" required>
-            </div>
-            <div class="col-12 mt-4">
-                <button type="submit" class="btn btn-primary col-12">Pesquisar</button>
-            </div>
+        <h2 class="text-center mt-4">Contato</h2>
+        <form action="" method="post" class="row mt-4 p-4 rounded border shadow">
+            {{ form.csrf_token }}
+            
+            {{ form.name.label('Nome') }}
+            {{ form.name(class='form-control') }}
+
+            {{ form.email.label('E-mail') }}
+            {{ form.email(class='form-control') }}
+
+            {{ form.subject.label('Assunto') }}
+            {{ form.subject(class='form-control') }}
+
+            {{ form.message.label('Menssagem') }}
+            {{ form.message(class='form-control') }}
+            
+            {{ form.btn_submit(class='btn btn-dark col-12 mt-2') }}
         </form>
     </div>
     <script 
