@@ -72,4 +72,11 @@ def contato_lista():
     
     return render_template('contato_lista.html',context=context)
 
+# ROTA DINAMICA
+@app.route('/contato/<int:id>/')
+def contato_detail(id):
+    obj = Contato.query.get(id)
+    
+    
+    return render_template('contato_detail.html',obj=obj)
 

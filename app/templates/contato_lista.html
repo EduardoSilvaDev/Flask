@@ -1,6 +1,6 @@
 {% extends 'base.html'%}
 {% block content %}
-    <a class="col-1 btn btn-primary ms-2 mt-2" href="{{url_for('home')}}">Voltar</a>
+    {% include 'nav.html' %}
 
     <div class="container">
         <div class="row mt-4">
@@ -23,6 +23,7 @@
                             <th>E-mail</th>
                             <th>Assunto</th>
                             <th>Respondido</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +33,11 @@
                                 <td>{{ i.email }}</td>
                                 <td>{{ i.subject }}</td>
                                 <td>{{ 'Sim' if i.answered else 'Não'}}</td>
+                                <td>
+                                    <a href="{{ url_for( 'contato_detail', id=i.id ) }}">
+                                        <img src="{{url_for('static',filename='img/btn.png')}}" style="width: 20px;">
+                                    </a>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
